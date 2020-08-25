@@ -26,10 +26,9 @@ class wppBot:
             time.sleep(3)
             botao_enviar.click()
             time.sleep(5)
-            
-
-            
-
+            rchat_box = self.driver.find_element_by_class_name('_274yw')
+                if(rchat_box not ""):
+                    
 
 bot = wppBot()
 bot.EnviarMensagens()
