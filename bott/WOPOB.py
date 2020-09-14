@@ -1,34 +1,25 @@
-from selenium import webdriver
+from selenium import  webdriver
 import time
-class wppBot:
-    def __init__(self):
-        self.mensagem = "O WOPOB diz *Obrigado pelo seu carinho :)*"
-        self.grupos_ou_pessoas = ["FAQs da faeterj"]
-        options = webdriver.ChromeOptions()
-        options.add_argument('lang=pt-br')
-        self.driver = webdriver.Chrome(
-            executable_path=r'./chromedriver.exe', chrome_options=options)
-
-    def EnviarMensagens(self):
-        self.driver.get('https://web.whatsapp.com')
-        time.sleep(30)
-        for grupo_ou_pessoa in self.grupos_ou_pessoas:
-            campo_grupo = self.driver.find_element_by_xpath(
-                f"//span[@title='{grupo_ou_pessoa}']")
-            time.sleep(3)
-            campo_grupo.click()
-            chat_box = self.driver.find_element_by_class_name('_3uMse')
-            time.sleep(3)
-            chat_box.click()
-            chat_box.send_keys(self.mensagem)
-            botao_enviar = self.driver.find_element_by_xpath(
-                "//span[@data-icon='send']")
-            time.sleep(3)
-            botao_enviar.click()
-            time.sleep(5)
-            rchat_box = self.driver.find_element_by_class_name('_274yw')
-                if(rchat_box not ""):
-                    
-
-bot = wppBot()
-bot.EnviarMensagens()
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.keys import Keys
+contatos = ['Emily'] #input("digite o nome: ")
+mensagem  = ['vamos\ndeixar\npara\namanha\nly\nquem sabe o mozar\nnão fala qual o\nerro']#input("digite a mensagem: ")
+time.sleep(10)
+driver = webdriver.Chrome(ChromeDriverManager().install())
+driver.get('https://web.whatsapp.com/')#site
+time.sleep(10)# time
+def buscar_contato(contato):# buscando nome
+        compo_pesquisa = driver.find_element_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
+        time.sleep(3)
+        compo_pesquisa.click()
+        compo_pesquisa.send_keys(contato)
+        compo_pesquisa.send_keys(Keys.ENTER)
+def enviar_mensagem(mensagem):# buscando mensagem
+        campo_mensagem = driver.find_elements_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
+        campo_mensagem[1].click()
+        time.sleep(3)
+        campo_mensagem[1].send_keys(mensagem)
+        campo_mensagem[1].send_keys(Keys.ENTER)
+for contato in contatos:#fazer o envio
+        buscar_contato(contato)
+        enviar_mensagem(mensagem)
