@@ -6,7 +6,22 @@ from selenium.webdriver.common.keys import Keys
 driver = webdriver.Chrome(ChromeDriverManager().install())
 import PySimpleGUI as sg
 
-class wppbot:
+    def buscar_contato(contato):# buscando nome
+        compo_pesquisa = driver.find_element_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
+        time.sleep(3)
+        compo_pesquisa.click()
+        compo_pesquisa.send_keys(contato)
+        compo_pesquisa.send_keys(Keys.ENTER)
+    def enviar_mensagem(mensagem):# buscando mensagem
+        campo_mensagem = driver.find_elements_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
+        campo_mensagem[1].click()
+        time.sleep(3)
+        campo_mensagem[1].send_keys(mensagem)
+        campo_mensagem[1].send_keys(Keys.ENTER)
+    for contato in contatos:#fazer o envio
+        buscar_contato(contato)
+        enviar_mensagem(mensagem)
+  class wppbot:
     #interface
     def __init__(self):
         layout = [
@@ -28,18 +43,3 @@ class wppbot:
         #execultando interface
 tela = wppbot()
 tela.Iniciar()
-def buscar_contato(contato):# buscando nome
-    compo_pesquisa = driver.find_element_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
-    time.sleep(3)
-    compo_pesquisa.click()
-    compo_pesquisa.send_keys(contato)
-    compo_pesquisa.send_keys(Keys.ENTER)
-def enviar_mensagem(mensagem):# buscando mensagem
-    campo_mensagem = driver.find_elements_by_xpath('//div[contains(@class,"copyable-text selectable-text")]')
-    campo_mensagem[1].click()
-    time.sleep(3)
-    campo_mensagem[1].send_keys(mensagem)
-    campo_mensagem[1].send_keys(Keys.ENTER)
-for contato in contatos:#fazer o envio
-    buscar_contato(contato)
-    enviar_mensagem(mensagem)
