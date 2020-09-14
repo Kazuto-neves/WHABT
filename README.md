@@ -1,3 +1,4 @@
 # WOPOB
-![LOGO](https://user-images.githubusercontent.com/64045767/93098173-e8c7b080-f67c-11ea-9dac-a85cb892d46d.png)
+![LOGO](https://user-images.githubusercontent.com/64045767/93098475-465bfd00-f67d-11ea-9695-83d063d1221e.png)
+
 
