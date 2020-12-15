@@ -7,7 +7,7 @@ class wppbot:
             [sg.Text('Mensagem',size=(10,0)),sg.Input(size=(50,0),key='mensagem')],
             [sg.Button('Enviar')]
         ]
-        janela = sg.Window("WOPOB").layout(layout)
+        janela = sg.Window("WHABT").layout(layout)
         self.button, self.values = janela.Read()
 
     def Iniciar(self):
