@@ -1,2 +1,4 @@
 # WHABT
-![LOGO](https://user-images.githubusercontent.com/64045767/93098675-84f1b780-f67d-11ea-9a93-324b177dd849.png)
+***
+## O logo
+![preto](https://user-images.githubusercontent.com/64045767/102719979-f1f59880-42cf-11eb-86f3-efbf89293c11.png)
