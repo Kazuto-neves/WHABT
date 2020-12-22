@@ -32,7 +32,7 @@ class wppbot:
         janela = sg.Window("WOPOB").layout(layout)
         self.button, self.values = janela.Read()
     def Iniciar(self):
-        contatos = self.values['nome']# digite o nome
+        contato = self.values['nome']# digite o nome
         mensagem = self.values['mensagem']# digite a mensagem
         driver.get('https://web.whatsapp.com/')#site
         time.sleep(30)# time
