@@ -11,8 +11,7 @@ event, values = window.read()
 # if user closes window or clicks cancel
 sg.theme('lightGreen3') if values['1']==True else sg.theme('DarkGreen4')
     # All the stuff inside your window.
-    
-layouts = [[sg.Image(r"E:\git\pytom\WOPOB\resources\branco.png")],
+layouts = [[sg.Image(r"E:\git\pytom\WOPOB\resources\branco.png") if values['1']==True else sg.Image(r"E:\git\pytom\WOPOB\resources\preto.png")],
            [sg.Text('Nome:        '), sg.InputText(key='nome',size=(50,1))],
            [sg.Text('Mensagem:'),sg.Multiline(size=(50, 3),key='men')],
            [sg.Button('Ok'),
@@ -27,4 +26,5 @@ while True:
         break
     print('Nome: ', values['nome'])
     print('Mensagem: ',values['men'])
+window.close()
 window2.close()
