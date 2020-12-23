@@ -1,2 +1,11 @@
 
 .swift-sfdc.json
+*.pyc
+*.toc
+*.zip
+*.pkg
+*.pyz
+*.txt
+*.html
+*.manifest
+*.spec
